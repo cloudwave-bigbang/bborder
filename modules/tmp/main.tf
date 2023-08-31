@@ -1,5 +1,5 @@
-resource "aws_iam_role" "bb_web_tmp_role" {
-  name = "bb-${var.infra_env}-tmp-role"
+resource "aws_iam_role" "bb_tmp_role" {
+  name = "bb-${var.infra_env}-${var.tmp_name}-tmp-role"
   assume_role_policy = jsonencode({
   "Version": "2012-10-17",
   "Statement": [
@@ -19,8 +19,8 @@ resource "aws_iam_role" "bb_web_tmp_role" {
   }
 }
 
-resource "aws_iam_instance_profile" "bb_web_tmp_profile" {
-  name = "bb-${var.infra_env}-tmp-profile"
+resource "aws_iam_instance_profile" "bb_tmp_profile" {
+  name = "bb-${var.infra_env}-${var.tmp_name}-tmp-profile"
   role = aws_iam_role.bb_web_tmp_role.name
 }
 
