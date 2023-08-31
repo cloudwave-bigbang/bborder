@@ -135,7 +135,7 @@ module "bb_rds" {
     cluster_az_list = ["ap-northeast-2a", "ap-northeast-2c"]
     db_name = "mydb"
     cluster_engine_ver = "15.3"
-    cluster_engine = "postgre"
+    cluster_engine = "postgres"
     cluster_identifier = "postgre-cluster"
     master_username = "foo"
     skip_final_snapshot = true
