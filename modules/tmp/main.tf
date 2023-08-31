@@ -21,7 +21,7 @@ resource "aws_iam_role" "bb_tmp_role" {
 
 resource "aws_iam_instance_profile" "bb_tmp_profile" {
   name = "bb-${var.infra_env}-${var.tmp_name}-tmp-profile"
-  role = aws_iam_role.bb_web_tmp_role.name
+  role = aws_iam_role.bb_tmp_role.name
 }
 
 resource "aws_launch_template" "bb_tmp" {
@@ -36,7 +36,7 @@ resource "aws_launch_template" "bb_tmp" {
     }
   }
   iam_instance_profile {
-    name = aws_iam_instance_profile.bb_web_tmp_profile.name
+    name = aws_iam_instance_profile.bb_tmp_role.name
   }
   network_interfaces{
     security_groups     = var.security_groups
