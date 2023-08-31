@@ -14,7 +14,7 @@ provider "aws" {
 
 module "bb_vpc" {
     source               = "../../modules/vpc"
-    cidr_block           = "10.2.0.0/16"
+    cidr_block           = "10.1.0.0/16"
     instance_tenancy     = "default"
     enable_dns_support   = true
     enable_dns_hostnames = true
