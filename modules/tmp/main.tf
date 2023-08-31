@@ -1,16 +1,16 @@
 resource "aws_iam_role" "bb_tmp_role" {
   name = "bb-${var.infra_env}-${var.tmp_name}-tmp-role"
   assume_role_policy = jsonencode({
-  "Version": "2012-10-17",
-  "Statement": [
+  Version: "2012-10-17",
+  Statement: [
     {
-      "Action": [
+      Action: [
         "s3:GetObject",
         "s3:GetObjectVersion",
         "s3:ListBucket"
       ],
-      "Effect": "Allow",
-      "Resource": "*"
+      Effect: "Allow",
+      Resource: "*"
     }
   ]
 })
