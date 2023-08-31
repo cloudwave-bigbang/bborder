@@ -1,8 +1,5 @@
 resource "aws_iam_role" "bb_web_tmp_role" {
   name = "bb-${var.infra_env}-tmp-role"
-
-  # Terraform's "jsonencode" function converts a
-  # Terraform expression result to valid JSON syntax.
   assume_role_policy = jsonencode({
   "Version": "2012-10-17",
   "Statement": [
@@ -17,7 +14,6 @@ resource "aws_iam_role" "bb_web_tmp_role" {
     }
   ]
 })
-
   tags = {
     tag-key = "tag-value"
   }
@@ -27,8 +23,6 @@ resource "aws_iam_instance_profile" "bb_web_tmp_profile" {
   name = "bb-${var.infra_env}-tmp-profile"
   role = aws_iam_role.bb_web_tmp_role.name
 }
-
-
 
 resource "aws_launch_template" "bb_tmp" {
   name = "bb-${var.infra_env}-${var.tmp_name}-tmp"
