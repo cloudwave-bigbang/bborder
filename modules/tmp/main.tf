@@ -1,5 +1,6 @@
 resource "aws_iam_role" "bb_tmp_role" {
-  name = "bb-${var.infra_env}-${var.tmp_name}-tmp-role"
+  name               = "bb-${var.infra_env}-${var.tmp_name}-tmp-role"
+  path               = "/"
   assume_role_policy = jsonencode({
   Version: "2012-10-17",
   Statement: [
@@ -10,7 +11,7 @@ resource "aws_iam_role" "bb_tmp_role" {
         "s3:ListBucket"
       ],
       Effect: "Allow",
-      Resource: "[*]"
+      Resource: "*"
     }
   ]
 })
@@ -18,6 +19,7 @@ resource "aws_iam_role" "bb_tmp_role" {
     tag-key = "tag-value"
   }
 }
+
 
 resource "aws_iam_instance_profile" "bb_tmp_profile" {
   name = "bb-${var.infra_env}-${var.tmp_name}-tmp-profile"

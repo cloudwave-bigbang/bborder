@@ -129,10 +129,10 @@ module "bb_bastion" {
 module "bb_rds" {
     source = "../../modules/rds"
     infra_env = local.name
-    private_subnet_ids      = [module.bb_subnet.private_subnet_ids[1], module.bb_subnet.private_subnet_ids[2], module.bb_subnet.private_subnet_ids[3]] 
+    private_subnet_ids      = [module.bb_subnet.private_subnet_ids[0], module.bb_subnet.private_subnet_ids[1], module.bb_subnet.private_subnet_ids[2], module.bb_subnet.private_subnet_ids[3]] 
     instance_type = "r5"
     instance_size = "xlarge"
-    cluster_az_list = ["ap-northeast-2a", "ap-northeast-2c", "ap-northeast-2b"]
+    cluster_az_list = ["ap-northeast-2a", "ap-northeast-2c", "ap-northeast-2b", "ap-northeast-2d"]
     db_name = "mydb"
     cluster_engine_ver = "15.3"
     cluster_engine = "postgres"
