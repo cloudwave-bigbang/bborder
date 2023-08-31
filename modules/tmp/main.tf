@@ -10,7 +10,7 @@ resource "aws_iam_role" "bb_tmp_role" {
         "s3:ListBucket"
       ],
       Effect: "Allow",
-      Resource: "*"
+      Resource: "[*]"
     }
   ]
 })
