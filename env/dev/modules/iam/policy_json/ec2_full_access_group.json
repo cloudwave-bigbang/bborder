@@ -1,0 +1,27 @@
+{
+          "Version": "2012-10-17",
+          "Statement": [
+              {
+                  "Effect": "Allow",
+                  "Action": "ec2:*",
+                  "Resource": "*"
+              },
+              {
+                  "Effect": "Deny",
+                  "Action": "ec2:RunInstances",
+                  "Resource": "*",
+                  "Condition": {
+                      "StringEquals": {
+                          "ec2:InstanceType": [
+                              "x1.*",
+                              "p3.*",
+                              "m5.*",
+                              "r5.*",
+                              "c5.*"
+                          ]
+                      }
+                  }
+              }
+          ]
+      }
+      
