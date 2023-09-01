@@ -125,7 +125,7 @@ module "bb_bastion" {
     subnet_id = module.bb_subnet.public_subnet_ids[0]
 }
 
-
+/*
 module "bb_rds" {
     source = "../../modules/rds"
     infra_env = local.name
@@ -141,7 +141,7 @@ module "bb_rds" {
     skip_final_snapshot = true
     storage_encrypted = true
     rds_security_group_ids = [module.bb_sg.bb_rds_sg_id]
-}
+}*/
 
 module "bb_waf" {
     providers = {
